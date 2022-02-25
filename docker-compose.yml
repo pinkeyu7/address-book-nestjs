@@ -1,0 +1,42 @@
+version: '3.6'
+
+services:
+  web:
+    image: pinkeyu/address-book-api
+    container_name: address-book-api
+    depends_on:
+      - db
+    networks:
+      - general
+    deploy:
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 50M
+    ports:
+      - "8000:3000"
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      MYSQL_USER: root
+      MYSQL_PASSWORD: secret
+      MYSQL_DATABASE: address_book
+      SWAGGER_PATH:
+      SWAGGER_SUBPATH:
+
+  db:
+    image: mysql:5.7.28
+    container_name: mysql
+    restart: always
+    networks:
+      - general
+    ports:
+      - "3306:3306"
+    volumes:
+      - "~/var/data/mysql:/var/lib/mysql"
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: address_book
+
+networks:
+  general:
