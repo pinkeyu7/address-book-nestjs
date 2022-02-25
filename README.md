@@ -2,7 +2,7 @@
 
 ## Description
 
-這是一個作業，了解並熟悉 Nodejs、Typescript、Nestjs、TypeORM，實作了使用者登入、聯絡人的新增、查詢、更新、刪除。
+這是一個專案，了解並熟悉 Nodejs、Typescript、Nestjs、TypeORM，實作了使用者登入、聯絡人的新增、查詢、更新、刪除。
 
 一般使用者可直接查詢所有資料，對內容進行修改則需要登入後取得授權才能進行變動。
 
